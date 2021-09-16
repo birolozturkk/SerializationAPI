@@ -2,13 +2,13 @@
 
 ## Maven
 
-[![](https://jitpack.io/v/ScropyTR/LegendInventoryAPI.svg)](https://jitpack.io/#ScropyTR/LegendInventoryAPI)
+[![](https://jitpack.io/v/ScropyTR/SerializationAPI.svg)](https://jitpack.io/#ScropyTR/SerializationAPI)
 
 ```pom.xml
 
 <dependency>
     <groupId>com.github.ScropyTR</groupId>
-    <artifactId>ConfigurationAPI</artifactId>
+    <artifactId>SerializationAPI</artifactId>
     <version>1.0.0</version>
 </dependency>
 
