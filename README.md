@@ -22,18 +22,16 @@
 
 ## Serialize to JSON
 ``` java
-public class ExamplePlugin {
+public class ExampleMain {
 
-    private Persist persist;
+    private static Persist persist;
 
-    private User user;
+    public static void main(String[] args) {
+        User user = new User("24357", "Scropy");
 
-    @Override
-    public void onEnable() {
-        this.persist = new Persist(new File("C:\dataFolder"), Persist.PersistyType.JSON);
+        persist = new Persist(new File("C:\\dataFolder"), Persist.PersistyType.YAML);
 
-        this.user = this.persist.load(User.class, "User");
-        this.persist.save(user, "User");
+        persist.save(user, "Config");
     }
 
 }
@@ -41,18 +39,16 @@ public class ExamplePlugin {
 
 ## Serialize to YAML
 ``` java
-public class ExamplePlugin {
+public class ExampleMain {
 
-    private Persist persist;
+    private static Persist persist;
 
-    private User user;
+    public static void main(String[] args) {
+        User user = new User("24357", "Scropy");
 
-    @Override
-    public void onEnable() {
-        this.persist = new Persist(new File("C:\dataFolder"), Persist.PersistyType.YAML);
+        persist = new Persist(new File("C:\\dataFolder"), Persist.PersistyType.YAML);
 
-        this.user = this.persist.load(User.class, "User");
-        this.persist.save(user, "User");
+        persist.save(user, "Config");
     }
 
 }
