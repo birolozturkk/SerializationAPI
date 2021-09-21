@@ -10,19 +10,18 @@ import java.io.File;
 
 public class Persist {
 
-    private Plugin plugin;
+    private File dataFolder;
 
     @Getter
     private PersistyType persistyType;
 
-    public Persist(Plugin plugin, PersistyType persistyType) {
-        this.plugin = plugin;
+    public Persist(File dataFolder, PersistyType persistyType) {
+        this.dataFolder = dataFolder;
         this.persistyType = persistyType;
-        persistyType.getConfigurationService().setPlugin(plugin);
     }
 
     public <T> T load(Class<T> clazz, String filePath) {
-        return load(clazz, new File(plugin.getDataFolder(), filePath + this.persistyType.getExtension()));
+        return load(clazz, new File(dataFolder, filePath + this.persistyType.getExtension()));
     }
 
     public <T> T load(Class<T> clazz, File file) {
@@ -34,12 +33,12 @@ public class Persist {
     }
 
     public <T> void save(T instance, String filePath) {
-        save(instance, new File(plugin.getDataFolder(), filePath + persistyType.getExtension()));
+        save(instance, new File(dataFolder, filePath + persistyType.getExtension()));
     }
 
     public enum PersistyType {
 
-        YAML(".yaml", new YamlSerializer()),
+        YAML(".yml", new YamlSerializer()),
         JSON(".json", new JsonSerializer());
 
         private String extension;

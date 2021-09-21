@@ -4,6 +4,7 @@ import com.github.scropytr.serializationapi.serialization.serializers.abstracts.
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.*;
 
@@ -14,19 +15,15 @@ public class JsonSerializer extends BaseSerializer {
     public JsonSerializer() {
     }
 
-    public JsonSerializer(Plugin plugin) {
-        super(plugin);
-    }
-
     public <T> T load(Class<T> clazz, File file) {
 
         try {
             if (!file.exists()) {
                 file.createNewFile();
                 System.out.println(file.getName());
-                copyResource(getPlugin().getResource(file.getName()), file);
-            }
 
+                copyResource(file);
+            }
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -44,7 +41,7 @@ public class JsonSerializer extends BaseSerializer {
         try {
             if (!file.exists()) {
                 file.createNewFile();
-                copyResource(getPlugin().getResource(file.getName()), file);
+                copyResource(file);
             }
 
             FileWriter fileWriter = new FileWriter(file);

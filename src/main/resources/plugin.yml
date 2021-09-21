@@ -1,6 +1,0 @@
-name: ConfigurationAPI
-version: '${project.version}'
-main: com.github.scropytr.configurationapi.ConfigurationAPI
-authors: [ Scropy ]
-description: Simple a configuration API
-website: https://reaven.com

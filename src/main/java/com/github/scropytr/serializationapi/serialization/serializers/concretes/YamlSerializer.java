@@ -1,20 +1,26 @@
 package com.github.scropytr.serializationapi.serialization.serializers.concretes;
 
 import com.github.scropytr.serializationapi.serialization.serializers.abstracts.BaseSerializer;
-import org.bukkit.plugin.Plugin;
+import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;
+import java.lang.reflect.MalformedParameterizedTypeException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class YamlSerializer extends BaseSerializer {
 
-    private final Yaml yaml = new Yaml();
+    private final Yaml yaml;
 
     public YamlSerializer() {
-    }
 
-    public YamlSerializer(Plugin plugin) {
-        super(plugin);
+        DumperOptions options = new DumperOptions();
+        options.setIndent(2);
+        options.setPrettyFlow(true);
+        options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+
+        yaml = new Yaml(options);
     }
 
     @Override
@@ -23,7 +29,7 @@ public class YamlSerializer extends BaseSerializer {
         try {
             if (!file.exists()) {
                 file.createNewFile();
-                copyResource(getPlugin().getResource(file.getName()), file);
+                copyResource(file);
             }
 
             FileReader fileReader = new FileReader(file);
@@ -43,7 +49,7 @@ public class YamlSerializer extends BaseSerializer {
         try {
             if (!file.exists()) {
                 file.createNewFile();
-                copyResource(getPlugin().getResource(file.getName()), file);
+                copyResource(file);
             }
 
             FileWriter fileWriter = new FileWriter(file);
@@ -51,6 +57,8 @@ public class YamlSerializer extends BaseSerializer {
 
             yaml.dump(instance, bufferedWriter);
 
+            bufferedWriter.close();
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
