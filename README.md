@@ -29,7 +29,7 @@ public class ExampleMain {
     public static void main(String[] args) {
         User user = new User("24357", "Scropy");
 
-        persist = new Persist(new File("C:\\dataFolder"), Persist.PersistyType.YAML);
+        persist = new Persist(new File("C:\\dataFolder"), Persist.PersistyType.JSON);
 
         persist.save(user, "Config");
     }
