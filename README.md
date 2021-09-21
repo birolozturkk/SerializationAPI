@@ -91,7 +91,7 @@ public class User {
 
 ``` json
 {
-  "id": "d1236f63-130f-37c5-98ad-4a85eb4b421e",
+  "id": "24357,
   "name": "Scropy"
 }
 
@@ -99,7 +99,7 @@ public class User {
 
 ### User.yml (File)
 ``` yml
-name: "d1236f63-130f-37c5-98ad-4a85eb4b421e"
+name: "24357"
 id: "Scropy"
 
 ```
