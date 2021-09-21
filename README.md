@@ -18,9 +18,9 @@
 </repository>
 ```
 
-## Usage
+# Usage
 
-# Serialize to JSON
+## Serialize to JSON
 ``` java
 public class ExamplePlugin {
 
@@ -39,7 +39,7 @@ public class ExamplePlugin {
 }
 ```
 
-# Serialize to YAML
+## Serialize to YAML
 ``` java
 public class ExamplePlugin {
 
@@ -58,7 +58,7 @@ public class ExamplePlugin {
 }
 ```
 
-### Object
+## Object
 
 ``` java
 public class User {
