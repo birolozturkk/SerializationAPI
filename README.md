@@ -20,8 +20,9 @@
 
 ## Usage
 
+#Serialize to JSON
 ``` java
-public class ExamplePlugin extends JavaPlugin {
+public class ExamplePlugin {
 
     private Persist persist;
 
@@ -29,32 +30,58 @@ public class ExamplePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.persist = new Persist(this, Persist.PersistyType.JSON);
+        this.persist = new Persist(new File("C:\dataFolder"), Persist.PersistyType.JSON);
 
         this.user = this.persist.load(User.class, "User");
-
-        Bukkit.getPlayer(UUID.fromString(this.user.getUuid())).sendMessage("Successful");
+        this.persist.save(user, "User");
     }
 
 }
 ```
 
+#serialize to YAML
+``` java
+public class ExamplePlugin {
+
+    private Persist persist;
+
+    private User user;
+
+    @Override
+    public void onEnable() {
+        this.persist = new Persist(new File("C:\dataFolder"), Persist.PersistyType.YAML);
+
+        this.user = this.persist.load(User.class, "User");
+        this.persist.save(user, "User");
+    }
+
+}
+```
 
 ### Object
 
 ``` java
 public class User {
 
-    private String uuid;
+    private String id;
     private String name;
 
-    public String getUuid() {
-        return uuid;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+   
 }
 
 ```
@@ -64,9 +91,15 @@ public class User {
 
 ``` json
 {
-  "uuid": "d1236f63-130f-37c5-98ad-4a85eb4b421e",
+  "id": "d1236f63-130f-37c5-98ad-4a85eb4b421e",
   "name": "Scropy"
 }
 
 ```
 
+### User.yml (File)
+``` yml
+name: "d1236f63-130f-37c5-98ad-4a85eb4b421e"
+id: "Scropy"
+
+```
