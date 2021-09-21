@@ -20,7 +20,7 @@
 
 ## Usage
 
-#Serialize to JSON
+# Serialize to JSON
 ``` java
 public class ExamplePlugin {
 
@@ -39,7 +39,7 @@ public class ExamplePlugin {
 }
 ```
 
-#serialize to YAML
+# Serialize to YAML
 ``` java
 public class ExamplePlugin {
 
