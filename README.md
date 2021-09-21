@@ -91,8 +91,7 @@ public class User {
 
 ``` json
 {
-  "id": "24357,
-  "name": "Scropyg"
+  "id": "24357
 }
 
 ```
