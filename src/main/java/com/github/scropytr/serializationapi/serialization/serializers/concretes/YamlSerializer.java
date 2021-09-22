@@ -56,7 +56,7 @@ public class YamlSerializer extends BaseSerializer {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             yaml.dump(instance, bufferedWriter);
-
+            bufferedWriter.flush();
             bufferedWriter.close();
             
         } catch (IOException e) {

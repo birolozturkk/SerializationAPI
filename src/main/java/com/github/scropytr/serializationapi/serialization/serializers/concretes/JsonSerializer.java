@@ -48,6 +48,7 @@ public class JsonSerializer extends BaseSerializer {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             gson.toJson(instance, bufferedWriter);
+            bufferedWriter.flush();
             bufferedWriter.close();
 
         } catch (IOException e) {
