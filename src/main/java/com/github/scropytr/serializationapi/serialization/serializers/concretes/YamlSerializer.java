@@ -5,9 +5,6 @@ import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;
-import java.lang.reflect.MalformedParameterizedTypeException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class YamlSerializer extends BaseSerializer {
 
@@ -56,6 +53,7 @@ public class YamlSerializer extends BaseSerializer {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             yaml.dump(instance, bufferedWriter);
+
             bufferedWriter.flush();
             bufferedWriter.close();
             

@@ -4,7 +4,6 @@ import com.github.scropytr.serializationapi.serialization.serializers.abstracts.
 import com.github.scropytr.serializationapi.serialization.serializers.concretes.JsonSerializer;
 import com.github.scropytr.serializationapi.serialization.serializers.concretes.YamlSerializer;
 import lombok.Getter;
-import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 
@@ -34,6 +33,14 @@ public class Persist {
 
     public <T> void save(T instance, String filePath) {
         save(instance, new File(dataFolder, filePath + persistyType.getExtension()));
+    }
+
+    public void setDataFolder(File dataFolder) {
+        this.dataFolder = dataFolder;
+    }
+
+    public void setPersistyType(PersistyType persistyType) {
+        this.persistyType = persistyType;
     }
 
     public enum PersistyType {
