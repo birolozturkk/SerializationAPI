@@ -3,7 +3,6 @@ package com.github.scropytr.serializationapi.serialization;
 import com.github.scropytr.serializationapi.serialization.serializers.abstracts.BaseSerializer;
 import com.github.scropytr.serializationapi.serialization.serializers.concretes.JsonSerializer;
 import com.github.scropytr.serializationapi.serialization.serializers.concretes.YamlSerializer;
-import lombok.Getter;
 
 import java.io.File;
 
@@ -11,7 +10,6 @@ public class Persist {
 
     private File dataFolder;
 
-    @Getter
     private PersistyType persistyType;
 
     public Persist(File dataFolder, PersistyType persistyType) {
@@ -41,6 +39,10 @@ public class Persist {
 
     public void setPersistyType(PersistyType persistyType) {
         this.persistyType = persistyType;
+    }
+
+    public PersistyType getPersistyType() {
+        return persistyType;
     }
 
     public enum PersistyType {
