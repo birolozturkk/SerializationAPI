@@ -17,6 +17,7 @@ public class JsonSerializer extends BaseSerializer {
 
         try {
             if (!file.exists()) {
+                file.getParentFile().mkdir();
                 file.createNewFile();
                 System.out.println(file.getName());
 

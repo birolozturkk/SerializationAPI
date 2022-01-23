@@ -25,6 +25,7 @@ public class YamlSerializer extends BaseSerializer {
 
         try {
             if (!file.exists()) {
+                file.getParentFile().mkdir();
                 file.createNewFile();
                 copyResource(file);
             }
