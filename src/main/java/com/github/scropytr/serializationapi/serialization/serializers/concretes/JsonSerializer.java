@@ -26,7 +26,10 @@ public class JsonSerializer extends BaseSerializer {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            return gson.fromJson(bufferedReader, clazz);
+            T result = gson.fromJson(bufferedReader, clazz);
+            bufferedReader.close();
+
+            return result;
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -39,6 +42,7 @@ public class JsonSerializer extends BaseSerializer {
 
         try {
             if (!file.exists()) {
+                file.getParentFile().mkdir();
                 file.createNewFile();
                 copyResource(file);
             }

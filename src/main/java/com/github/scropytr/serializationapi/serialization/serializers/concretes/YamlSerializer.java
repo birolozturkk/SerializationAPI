@@ -33,7 +33,10 @@ public class YamlSerializer extends BaseSerializer {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            return yaml.loadAs(bufferedReader, clazz);
+            T result = yaml.loadAs(bufferedReader, clazz);
+            bufferedReader.close();
+
+            return result;
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,6 +49,7 @@ public class YamlSerializer extends BaseSerializer {
 
         try {
             if (!file.exists()) {
+                file.getParentFile().mkdir();
                 file.createNewFile();
                 copyResource(file);
             }
