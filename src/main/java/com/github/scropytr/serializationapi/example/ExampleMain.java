@@ -11,7 +11,7 @@ public class ExampleMain {
     public static void main(String[] args) {
         User user = new User("24357", "Scropy");
 
-        persist = new Persist(new File("C:\\ReavenBot"), Persist.PersistyType.YAML);
+        persist = new Persist(new File("C:\\ReavenBot"), Persist.PersistType.YAML);
 
         persist.save(user, "config");
         User user1 = persist.load(User.class, "config");

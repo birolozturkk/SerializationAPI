@@ -10,9 +10,9 @@ public class Persist {
 
     private File dataFolder;
 
-    private PersistyType persistyType;
+    private PersistType persistyType;
 
-    public Persist(File dataFolder, PersistyType persistyType) {
+    public Persist(File dataFolder, PersistType persistyType) {
         this.dataFolder = dataFolder;
         this.persistyType = persistyType;
     }
@@ -37,15 +37,15 @@ public class Persist {
         this.dataFolder = dataFolder;
     }
 
-    public void setPersistyType(PersistyType persistyType) {
+    public void setPersistyType(PersistType persistyType) {
         this.persistyType = persistyType;
     }
 
-    public PersistyType getPersistyType() {
+    public PersistType getPersistyType() {
         return persistyType;
     }
 
-    public enum PersistyType {
+    public enum PersistType {
 
         YAML(".yml", new YamlSerializer()),
         JSON(".json", new JsonSerializer());
@@ -53,7 +53,7 @@ public class Persist {
         private String extension;
         private BaseSerializer baseSerializer;
 
-        PersistyType(String extension, BaseSerializer baseSerializer) {
+        PersistType(String extension, BaseSerializer baseSerializer) {
             this.extension = extension;
             this.baseSerializer = baseSerializer;
         }
