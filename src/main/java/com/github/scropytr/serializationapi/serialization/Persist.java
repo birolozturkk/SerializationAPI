@@ -10,39 +10,39 @@ public class Persist {
 
     private File dataFolder;
 
-    private PersistType persistyType;
+    private PersistType persistType;
 
     public Persist(File dataFolder, PersistType persistyType) {
         this.dataFolder = dataFolder;
-        this.persistyType = persistyType;
+        this.persistType = persistyType;
     }
 
     public <T> T load(Class<T> clazz, String filePath) {
-        return load(clazz, new File(dataFolder, filePath + this.persistyType.getExtension()));
+        return load(clazz, new File(dataFolder, filePath + this.persistType.getExtension()));
     }
 
     public <T> T load(Class<T> clazz, File file) {
-        return this.persistyType.getConfigurationService().load(clazz, file);
+        return this.persistType.getConfigurationService().load(clazz, file);
     }
 
     public <T> void save(T instance, File file) {
-        this.persistyType.getConfigurationService().save(instance, file);
+        this.persistType.getConfigurationService().save(instance, file);
     }
 
     public <T> void save(T instance, String filePath) {
-        save(instance, new File(dataFolder, filePath + persistyType.getExtension()));
+        save(instance, new File(dataFolder, filePath + persistType.getExtension()));
     }
 
     public void setDataFolder(File dataFolder) {
         this.dataFolder = dataFolder;
     }
 
-    public void setPersistyType(PersistType persistyType) {
-        this.persistyType = persistyType;
+    public void setPersistType(PersistType persistType) {
+        this.persistType = persistType;
     }
 
-    public PersistType getPersistyType() {
-        return persistyType;
+    public PersistType getPersistType() {
+        return persistType;
     }
 
     public enum PersistType {
