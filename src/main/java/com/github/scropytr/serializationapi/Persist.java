@@ -46,7 +46,7 @@ public class Persist {
 
     public <T> void save(T instance, File file) {
         try {
-            objectMapper.writeValue(file, instance);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, instance);
         } catch (IOException e) {
             System.out.println("Failed to save " + file.toString() + ": " + e.getMessage());
         }
