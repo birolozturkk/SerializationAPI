@@ -9,7 +9,7 @@
 <dependency>
     <groupId>com.github.ScropyTR</groupId>
     <artifactId>SerializationAPI</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 
 <repository>
