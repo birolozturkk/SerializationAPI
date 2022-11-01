@@ -7,7 +7,7 @@
 ```pom.xml
 
 <dependency>
-    <groupId>com.github.ScropyTR</groupId>
+    <groupId>com.github.birolozturkk</groupId>
     <artifactId>SerializationAPI</artifactId>
     <version>1.0.8</version>
 </dependency>
